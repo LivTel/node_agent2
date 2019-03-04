@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, 
+Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
+ 
+<web-app>
+    <listener>
+        <listener-class>
+            com.sun.xml.ws.transport.http.servlet.WSServletContextListener
+        </listener-class>
+    </listener>
+   	<servlet>
+		<servlet-name>NodeAgentInitialiser</servlet-name>
+		<display-name>Node Agent Initialiser</display-name>
+		<servlet-class>
+			org.estar.node_agent2.initialisation.InitialisationServlet
+		</servlet-class>
+		<load-on-startup>102</load-on-startup>
+	</servlet>
+    <servlet>
+        <servlet-name>node_agent2</servlet-name>
+        <servlet-class>
+            com.sun.xml.ws.transport.http.servlet.WSServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>node_agent2</servlet-name>
+        <url-pattern>/node_agent</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>
