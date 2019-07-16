@@ -118,7 +118,19 @@ java org.estar.node_agent2.client.NodeAgentClient -host ltproxy -port 8080 -user
 ## Python client
 
 The python client requires suds for web-services support:
+
+For python 2.7
+```shell
 pip install suds
+```    
+</br>
+
+For python 3.x
+```shell
+pip install suds-py3
+```
+</br>
+
 
 The python client software is in node_agent2/src/python
 

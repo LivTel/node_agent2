@@ -67,25 +67,24 @@ if(__name__ == "__main__"):
     client = NodeAgentClient()
     client.add_arguments(parser)
     args = parser.parse_args()
-    print "Initialising web service to host "+args.hostname+":"+args.port_number+"."
-    print "Using username "+args.username+" and password "+args.password+"."
+    print ("Initialising web service to host "+args.hostname+":"+args.port_number+".")
+    print ("Using username "+args.username+" and password "+args.password+".")
     client.initialise_web_service(args.hostname,args.port_number,args.username,args.password)
-    #logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(filename='nodelog.txt', level=logging.DEBUG)
     if args.ping:
-        print "Invoking NodeAgent ping() method."
+        print ("Invoking NodeAgent ping() method.")
         return_string = client.ping()
-        print "Returned message from NodeAgent ping() method was:" + return_string + ".\n"
+        print ("Returned message from NodeAgent ping() method was:" + return_string + ".\n")
     elif args.handle_rtml:
-        print "Loading RTML from file:"+ args.handle_rtml.name
+        print ("Loading RTML from file:"+ args.handle_rtml.name)
         rtml_string = client.load_file(args.handle_rtml)
         #print "Invoking NodeAgent handle_rtml() method with RTML document:"+ rtml_string
-        print "Invoking NodeAgent handle_rtml() method."
+        print ("Invoking NodeAgent handle_rtml() method.")
         return_string = client.handle_rtml(rtml_string)
         if args.output:
-            print "Saving returned RTML document to file:"+ args.output.name
+            print ("Saving returned RTML document to file:"+ args.output.name)
             client.save_file(args.output,return_string)
         else:
-            print "Returned RTML from handle_rtml method was:" + return_string + "\n"
+            print ("Returned RTML from handle_rtml method was:" + return_string + "\n")
     else:
-        print "No method to invoke:Please specify --ping or --handle_rtml <rtml_filename>"
-
+        print ("No method to invoke:Please specify --ping or --handle_rtml <rtml_filename>")
