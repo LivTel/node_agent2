@@ -8,7 +8,7 @@ https://examples.javacodegeeks.com/enterprise-java/jws/jax-ws-hello-world-exampl
 
 The web-service authentication was developed following this:
 https://www.mkyong.com/webservices/jax-ws/application-authentication-with-jax-ws/
-It is currently pretty poor (i.e. passwords in plain-text, possibility of replay attacks etc) and should probably 
+It is currently pretty poor (i.e. passwords in plain-text, possibility of replay attacks etc) and should probably
 be improved.
 
 The client-side python code was developed using suds:
@@ -78,9 +78,9 @@ The project was built as a Dynamic Web Poject, i.e. File->New->Other->Web->Dynam
 
 The .project and .classpth files are in the repository as node_agent2.project and node_agent2.classpath.
 
-# Building 
+# Building
 
-There is currently no working ant build script for this project. Once installed in eclipse, 
+There is currently no working ant build script for this project. Once installed in eclipse,
 * Right click on the 'node_agent2' project
 * Project->Export. Select Web -> WAR file
 * Select node_agent2/bin/node_agent2.war as the output destination.
@@ -109,7 +109,7 @@ http://ltproxy:8080/node_agent2/node_agent?wsdl
 
 Ensure node_agent2.jar is in the CLASSPATH, or run the client from node_agent2/build/classes.
 
-Run the Java client as follows: 
+Run the Java client as follows:
 java org.estar.node_agent2.client.NodeAgentClient -help
 
 e.g.
@@ -123,8 +123,8 @@ pip install suds
 The python client software is in node_agent2/src/python
 
 Invoke as follows:
-
+```shell
 python NodeAgentClient.py --help
 
 python NodeAgentClient.py --hostname ltproxy --port_number 8080 --username <username> --password <password> --handle_rtml test_rtml_document.rtml --output output.rtml
-
+```
