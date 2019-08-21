@@ -26,7 +26,7 @@ https://stackoverflow.com/questions/115316/how-can-i-consume-a-wsdl-soap-web-ser
 
 Most of the 'guts' of the Node Agent Code (TEA RMI invocation etc) has been copied from Neil's original node_agent, but repacked to avoid any potential namespace conflicts.
 
-# Dependancies
+# Dependencies
 
 ## Libraries
 
@@ -127,7 +127,7 @@ pip install suds
 
 For python 3.x
 ```shell
-pip install suds-py3
+pip3 install suds-py3
 ```
 </br>
 
