@@ -1,0 +1,8 @@
+#!/bin/csh
+set pwd = `pwd`
+set node_agent2_scripts_dir = `dirname $0`
+set node_agent2_dir = `dirname ${node_agent2_scripts_dir}`
+echo "node_agent2 base directory: ${node_agent2_dir}"
+setenv CLASSPATH "${CLASSPATH}:${node_agent2_dir}/build/classes/"
+echo $CLASSPATH
+java org.estar.node_agent2.client.NodeAgentClient $*
