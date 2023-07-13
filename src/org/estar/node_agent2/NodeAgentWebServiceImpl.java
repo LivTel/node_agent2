@@ -101,7 +101,6 @@ public class NodeAgentWebServiceImpl implements NodeAgentWebServiceInterface
 			e.printStackTrace();
 			errorLogger.log(1, this.getClass().getName(), "handle_rtml:handleRTMLDocument failed with exception:"+e);
 		}
-		// diddly what if rtmlDocument has been returned null?
 		// turn returned RTMLDocument into a string
 		try 
 		{
@@ -417,9 +416,8 @@ public class NodeAgentWebServiceImpl implements NodeAgentWebServiceInterface
 					" does not match RTML username "+rtmlUsername+".");
 			errorLogger.log(1, this.getClass().getName(),"checkUsernamesMatch:Unaliased Header Username "+unaliasedHeaderUsername+
 					" does not match RTML username "+rtmlUsername+".");
-			// uncomment after testing
-			//throw new Exception("checkUsernamesMatch:Unaliased Header Username "+unaliasedHeaderUsername+
-			//		" does not match RTML username "+rtmlUsername+".");
+			throw new Exception("checkUsernamesMatch:Unaliased Header Username "+unaliasedHeaderUsername+
+					" does not match RTML username "+rtmlUsername+".");
 		}
 		traceLogger.log(1, this.getClass().getName(),
 				"checkUsernamesMatch:Unaliased Header Username "+unaliasedHeaderUsername+
