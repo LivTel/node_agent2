@@ -260,6 +260,11 @@ public class NodeAgentWebServiceImpl implements NodeAgentWebServiceInterface
 				traceLogger.log(2, this.getClass().getName(), "... document type is abort");
 				teaRTMLResponse = RMITeaConnectionHandler.getInstance().handleAbort(rtmlDocument);
 			}
+			else if (rtmlDocument.isUpdate())
+			{
+				traceLogger.log(2, this.getClass().getName(), "... document type is update");
+				teaRTMLResponse = RMITeaConnectionHandler.getInstance().handleAbort(rtmlDocument);
+			}
 			else
 			{
 				errorLogger.log(1, this.getClass().getName(),"Unknown document request type.");
