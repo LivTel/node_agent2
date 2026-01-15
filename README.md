@@ -68,6 +68,14 @@ From ltdevsrv:/home/dev/bin/estar/javalib/:
 * org_estar_rtml.jar
 * tea.jar
 
+This all works on tomcat 7, but we are currently seeing problems as follows on tomcat 9:
+```
+java.lang.NoClassDefFoundError: javax/activation/DataSource
+```
+
+If this occurs, add the javax.activation jar to the build. This is available here: https://mvnrepository.com/artifact/javax.activation/activation/1.1.1 ,  we have an older version available on ltdevsrv:/home/dev/bin/javalib_third_party/activation/activation.jar .
+
+
 ## Eclipse
 
 Eclipse needs the following plugins installed.
