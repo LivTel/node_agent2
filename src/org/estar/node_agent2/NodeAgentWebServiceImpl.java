@@ -263,7 +263,7 @@ public class NodeAgentWebServiceImpl implements NodeAgentWebServiceInterface
 			else if (rtmlDocument.isUpdate())
 			{
 				traceLogger.log(2, this.getClass().getName(), "... document type is update");
-				teaRTMLResponse = RMITeaConnectionHandler.getInstance().handleAbort(rtmlDocument);
+				teaRTMLResponse = RMITeaConnectionHandler.getInstance().handleUpdate(rtmlDocument);
 			}
 			else
 			{
