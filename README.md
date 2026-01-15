@@ -88,6 +88,9 @@ The .project and .classpth files are in the repository as node_agent2.project an
 
 # Building
 
+You may need to install the node_agent2.classpath file as an eclipse .classpath file.
+You may need to install the node_agent2.project file as an eclipse .project file.
+
 There is currently no working ant build script for this project. Once installed in eclipse,
 * Right click on the 'node_agent2' project
 * Project->Export. Select Web -> WAR file
@@ -100,6 +103,8 @@ The software is also built into a jar, for the Java client:
 # Installation
 
 Copy the node_agent2.war to /usr/local/tomcat/webapps/ on the deployment machine (ltproxy).
+
+node_agent2 has a configuration file, server.configuration, which must be stored in /etc/nodeagent on the deployment machine (ltproxy). This configuration file is also used by the old node_agent webservice. The current server.configuration is stored in this repository.
 
 The tomcat used will need to be running at least Java 8 (using the version of jaxws-ri mentioned above).
 
