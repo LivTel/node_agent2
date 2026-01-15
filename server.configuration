@@ -1,0 +1,31 @@
+#The name of this NodeAgent
+nodeagent.name=LT_NodeAgent
+
+#Whether traffic to the node agent is directed through to the TEA
+isteaconnected=true
+
+#The host the the TEA RMI service is running on 
+tea.hostname=127.0.0.1
+
+#Set in the RTML document sent to the TEA, is not used to build URLs for networking 
+nodeagent.port=1099
+
+#Location of the file representing RTML documents still pending processing by the TEA
+#They are stored so that return and update documents from the TEA are referenced to the hash-storage and the RTML document is sent to the looked up IA
+rtml.hashstoragefile=rtml.hash.storage
+
+#The RMI name of the TEA service object (on which handle RTML calls are made)
+tea.request.handler.rmi.name=EARequestHandler
+
+#The RMI name of the local service object on which the TEA makes calls (to return updates)
+nodeagent.response.handler.rmi.name=NAAsyncResponseHandler
+
+#The RMI name of the TEA service object which processes availability requests and updates
+tea.availability.predictor.rmi.name=TAPredictor
+
+#GLS Stuff:
+gls.use=true
+gls.host=localhost
+gls.port=2371
+gls.channel.error=NA_ERROR
+gls.channel.trace=NA_TRACE
