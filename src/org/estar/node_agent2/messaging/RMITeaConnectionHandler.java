@@ -243,6 +243,45 @@ earh);
 		return replyDocument;
     }
 	
+	/**
+	 * Method to handle an update RTML document.
+	 * <ul>
+	 * <li>We lookup the embedded agent request handler (RMI interface) using Naming.lookup
+	 *     on the embeddedAgentRequestHandlerURL.
+	 * <li>We invoke the embedded agent request handler RMI method handleUpdate, with the supplied RTML document.
+	 *     and return the reply document.
+	 * </ul>
+	 * @param rtmlDocument A document object model containing the RTML document to provide an update for.
+	 * @return An instance of RTMLDocument containing the reply from TEA's handleUpdate RMI method.
+	 * @see #traceLogger
+	 * @see #embeddedAgentRequestHandlerURL
+	 * @see org.estar.tea.EmbeddedAgentRequestHandler
+	 * @see org.estar.tea.EmbeddedAgentRequestHandler#handleUpdate
+	 */
+	public synchronized RTMLDocument handleUpdate(RTMLDocument rtmlDocument) throws MalformedURLException, 
+    RemoteException, NotBoundException 
+    {
+		traceLogger.log(5, RMITeaConnectionHandler.class.getName(), "handleUpdate() invoked");
+		RTMLDocument replyDocument = null;
+
+		//locate reference to EmbeddedAgentRequestHandler (in the TEA)
+		traceLogger.log(5, RMITeaConnectionHandler.class.getName(),
+				"looking up EmbeddedAgentRequestHandler on TEA using URL: "+
+				embeddedAgentRequestHandlerURL);
+		EmbeddedAgentRequestHandler earh = (EmbeddedAgentRequestHandler)Naming.lookup(
+				embeddedAgentRequestHandlerURL);
+
+		traceLogger.log(5, RMITeaConnectionHandler.class.getName(), "... located EmbeddedAgentRequestHandler: "+
+earh);
+
+		//invoke required method on earh
+		traceLogger.log(5, RMITeaConnectionHandler.class.getName(), 
+				"... calling EmbeddedAgentRequestHandler.handleUpdate(rtmlDocument)");
+		replyDocument = earh.handleUpdate(rtmlDocument);
+
+		return replyDocument;
+    }
+	
 	public void destroy() {
 		persistenceRunnable.stop();
 	}
