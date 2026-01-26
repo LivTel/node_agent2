@@ -106,6 +106,14 @@ Copy the node_agent2.war to /usr/local/tomcat/webapps/ on the deployment machine
 
 node_agent2 has a configuration file, server.configuration, which must be stored in /etc/nodeagent on the deployment machine (ltproxy). This configuration file is also used by the old node_agent webservice. The current server.configuration is stored in this repository.
 
+There should be 3 other configuration files stored in the /etc/nodeagent directory on the deployment machine (ltproxy):
+* '''projectalias.map''' A list of aliases for projects, mapping RTML project Tags to Phase 2 proposals.
+* '''useralias.map''' A list of aliases for users, mapping RTML User names to Phase2 Tag/Usernames.
+* '''userpassword.map''' A mapping from RTML User names to a password string, used for authenticating the RTML document
+is from the specified user.
+
+There is an RCS repository on ltdevsrv:/home/dev/src/estar/node_agent_config/ containing the last known backup of these configuration files.
+
 The tomcat used will need to be running at least Java 8 (using the version of jaxws-ri mentioned above).
 
 We can test the deployment was successful: http://ltproxy:8080/node_agent2/node_agent
